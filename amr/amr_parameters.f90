@@ -121,6 +121,7 @@ module amr_parameters
   real(dp)::omega_m=1.0D0     ! Omega Matter
   real(dp)::omega_l=0.0D0     ! Omega Lambda
   real(dp)::omega_k=0.0D0     ! Omega Curvature
+  real(dp)::omega_r=0.0D0     ! Omega Radiation
   real(dp)::h0     =1.0D0     ! Hubble constant in km/s/Mpc
   real(dp)::aexp   =1.0D0     ! Current expansion factor
   real(dp)::hexp   =0.0D0     ! Current Hubble parameter

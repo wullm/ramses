@@ -330,7 +330,7 @@ subroutine init_amr
      read(ilun)nstep,nstep_coarse
      nstep_coarse_old=nstep_coarse
      read(ilun)einit,mass_tot_0,rho_tot
-     read(ilun)omega_m,omega_l,omega_k,omega_b,h0,aexp_ini,boxlen_ini
+     read(ilun)omega_m,omega_l,omega_k,omega_r,omega_b,h0,aexp_ini,boxlen_ini
      read(ilun)aexp,hexp,aexp_old,epot_tot_int,epot_tot_old
      if(cosmo)then
         read(ilun)mass_sph
@@ -533,5 +533,3 @@ subroutine init_amr
   end if
 
 end subroutine init_amr
-
-

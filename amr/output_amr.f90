@@ -260,7 +260,7 @@ subroutine backup_amr(filename)
   write(ilun)dtnew(1:nlevelmax)
   write(ilun)nstep,nstep_coarse
   write(ilun)einit,mass_tot_0,rho_tot
-  write(ilun)omega_m,omega_l,omega_k,omega_b,h0,aexp_ini,boxlen_ini
+  write(ilun)omega_m,omega_l,omega_k,omega_r,omega_b,h0,aexp_ini,boxlen_ini
   write(ilun)aexp,hexp,aexp_old,epot_tot_int,epot_tot_old
   write(ilun)mass_sph
   ! Write levels variables
@@ -442,6 +442,7 @@ subroutine output_info(filename)
   write(ilun,'("omega_m     =",E23.15)')omega_m
   write(ilun,'("omega_l     =",E23.15)')omega_l
   write(ilun,'("omega_k     =",E23.15)')omega_k
+  write(ilun,'("omega_r     =",E23.15)')omega_r
   write(ilun,'("omega_b     =",E23.15)')omega_b
   write(ilun,'("unit_l      =",E23.15)')scale_l
   write(ilun,'("unit_d      =",E23.15)')scale_d
