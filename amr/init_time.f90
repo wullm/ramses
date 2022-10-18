@@ -575,7 +575,7 @@ subroutine init_cosmo
   if(myid==1)then
      write(*,'(" Cosmological parameters:")')
      write(*,'(" aexp=",1pe10.3," H0=",1pe10.3," km s-1 Mpc-1")')aexp,h0
-     write(*,'(" omega_m=",F7.3," omega_l=",F7.3," omega_b=",F7.3," omega_r=",F7.3)')omega_m,omega_l,omega_b,omega_r
+     write(*,'(" omega_m=",F7.3," omega_l=",F7.3," omega_b=",F7.3," omega_r=",F12.8)')omega_m,omega_l,omega_b,omega_r
      write(*,'(" box size=",1pe10.3," h-1 Mpc")')boxlen_ini
   end if
   omega_k=1.d0-omega_l-omega_m-omega_r
@@ -859,7 +859,7 @@ function dadtau(axp_tau,O_mat_0,O_vac_0,O_k_0,O_r_0)
   real(kind=8)::dadtau,axp_tau,O_mat_0,O_vac_0,O_k_0,O_r_0
   dadtau = axp_tau*axp_tau*axp_tau *  &
        &   ( O_mat_0 + &
-       &     O_r_0 / axo_tau + &
+       &     O_r_0 / axp_tau + &
        &     O_vac_0 * axp_tau*axp_tau*axp_tau + &
        &     O_k_0   * axp_tau )
   dadtau = sqrt(dadtau)
@@ -871,7 +871,7 @@ function dadt(axp_t,O_mat_0,O_vac_0,O_k_0,O_r_0)
   real(kind=8)::dadt,axp_t,O_mat_0,O_vac_0,O_k_0,O_r_0
   dadt   = (1.0D0/axp_t)* &
        &   ( O_mat_0 + &
-       &     O_r_0 / axo_tau + &
+       &     O_r_0 / axp_t + &
        &     O_vac_0 * axp_t*axp_t*axp_t + &
        &     O_k_0   * axp_t )
   dadt = sqrt(dadt)
